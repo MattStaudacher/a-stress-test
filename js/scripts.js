@@ -1,6 +1,7 @@
 var warningValues = [];
 var healthValues = [];
 var copingValues = [];
+var outputHelp = []
 
 $(function(){
   $("#stress-survey").submit(function(event){
@@ -9,6 +10,7 @@ $(function(){
     warningValues = [];
     healthValues = [];
     copingValues = [];
+    outputHelp = [];
     $("input:checkbox[name=signs-warning]:checked").each(function(){
       warningValues.push($(this).val());
     });
@@ -25,16 +27,42 @@ $(function(){
     console.log(copingValues);
     console.log(copingValues.length);
     $("#help-list").text("");
-    var outputHelp = ["Nothing"];
-    if(warningValues.length === 0 && healthValues.length===0)
+
+    var warningLength = warningValues.length;
+    var healthLength = healthValues.length;
+    var stressCombined = warningLength+healthLength;
+    var copingLength = copingValues.length;
+
+    //Branching for Stress Test Starts Here
+    if((!warningLength) && (!healthLength) && (!compareTo(copingLength,5)))
     {
       outputHelp = ["You are Healthy!"];
     }
-    else if(copingValues.length === 0)
+    else if(compareTo(warningLength+healthLength,10) && (!compareTo(copingLength,5)))
     {
-      outputHelp = ["Pet a Cat or Dog","Yoga","Meditate"];
+      outputHelp = ["Life is too stressing!","Try petting an animal","Go for a walk"];
     }
-
+    else if(compareTo(copingLength,5))
+    {
+      outputHelp = ["Health Overwhelming!"];
+    }
+    else if((!copingLength))
+    {
+      outputHelp = ["Pet an animal","Yoga","Meditation"];
+    }
+    else if(stressCombined > copingLength)
+    {
+      outputHelp = ["Pet an animal","Yoga","Meditation"];
+    }
+    else if(copingLength >= stressCombined)
+    {
+      outputHelp = ["You are health!","Keep working on your stressfree routine"];
+      outputHelp = outputHelp.concat(copingValues);
+    }
+    else {
+      outputHelp = [""];
+    }
+    //Branching for Stress Test Ends Here
     arrayWrapper(outputHelp);
     $("#help-list").html(outputHelp);
   });
@@ -52,4 +80,9 @@ function arrayWrapper(arrayTemp)
   {
     arrayTemp[index] = listWrapper(arrayTemp[index]);
   }
+}
+
+function compareTo(first,second)
+{
+  return (first === second);
 }
