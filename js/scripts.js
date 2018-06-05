@@ -20,12 +20,12 @@ $(function(){
     $("input:checkbox[name=coping-methods]:checked").each(function(){
       copingValues.push($(this).val());
     });
-    console.log(warningValues);
-    console.log(warningValues.length);
-    console.log(healthValues);
-    console.log(healthValues.length);
-    console.log(copingValues);
-    console.log(copingValues.length);
+    // console.log(warningValues);
+    // console.log(warningValues.length);
+    // console.log(healthValues);
+    // console.log(healthValues.length);
+    // console.log(copingValues);
+    // console.log(copingValues.length);
     $("#help-list").text("");
 
     var warningLength = warningValues.length;
