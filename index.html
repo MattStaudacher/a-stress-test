@@ -10,6 +10,37 @@
   </head>
   <body class="container-fluid">
     <h1 class="jumbotron">A Stress Test</h1>
-
+    <form id="stress-survey" class="panel panel-info modifier">
+      <h2>Please check all that apply</h2>
+      <div class="form-signs-warning">
+        <p>Warning Signs:</p>
+        <input type="checkbox" name="signs-warning" value="sleep"> Loss of sleep<br>
+        <input type="checkbox" name="signs-warning" value="overwhelmed"> Feeling overwhelmed<br>
+        <input type="checkbox" name="signs-warning" value="apetite"> Loss of apetite<br>
+        <input type="checkbox" name="signs-warning" value="focus"> Trouble focusing<br>
+        <input type="checkbox" name="signs-warning" value="unproductive"> Feeling unproductive<br>
+      </div>
+      <div class="form-signs-health">
+        <p>Health Symptoms:</p>
+        <input type="checkbox" name="signs-health" value="pressure"> High blood pressure<br>
+        <input type="checkbox" name="signs-health" value="anxiety"> Anxiety<br>
+        <input type="checkbox" name="signs-health" value="energy"> Low energy<br>
+        <input type="checkbox" name="signs-health" value="insomnia"> Insomnia<br>
+        <input type="checkbox" name="signs-health" value="nausea"> Nausea<br>
+      </div>
+      <div class="form-coping-methods">
+        <p>Coping Methods:</p>
+        <input type="checkbox" name="coping-methods" value="meditate"> Meditate<br>
+        <input type="checkbox" name="coping-methods" value="dog"> Pet a dog<br>
+        <input type="checkbox" name="coping-methods" value="time"> Manage your time<br>
+        <input type="checkbox" name="coping-methods" value="walk"> Go on a walk<br>
+        <input type="checkbox" name="coping-methods" value="yoga"> Yoga<br>
+      </div>
+     <button type="submit">Submit Survey</button>
+    </form>
+    <div id="guidance" class="panel panel-info modifier">
+      <p><b>Based on your answers to the stress test we recommend the following:</b></p>
+      <ul id="help-list"></ul>
+    </div>
   </body>
 </html>

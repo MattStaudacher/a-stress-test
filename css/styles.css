@@ -3,6 +3,10 @@ body{
   font-size: 1.5em;
 }
 
-.panel-modifier {
+.modifier {
   padding: 6px;
+}
+
+#guidance{
+  display: none;
 }
